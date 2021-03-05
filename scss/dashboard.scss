@@ -1,0 +1,6 @@
+@import "variables";
+@import "resets";
+
+body {
+    @include scrollbars (10px, $primary-color, $bg-color)
+}
