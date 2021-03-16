@@ -1,3 +1,10 @@
+<?php 
+  session_start();
+  if(!isset($_SESSION["login"])){
+    header("Location: login.php");
+    exit;
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -66,7 +73,7 @@
         </div>
         <a href="profile" class="nav_link" id="link">
           <ion-icon name="person-outline" class="nav_icon"></ion-icon>
-          <span class="nav_name">Nama User</span></a
+          <span class="nav_name"><?php echo $_SESSION["username"];?></span></a
         >
       </nav>
     </div>

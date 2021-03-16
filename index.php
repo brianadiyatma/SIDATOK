@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION["login"])){
-  header("Location: dashboard.php");
+  header("Location: sidebar.php");
   exit;
 }
 require_once 'connect.php';
@@ -19,7 +19,7 @@ if(isset($_POST["login"])){
         $_SESSION["login"] = true;
         $_SESSION["username"] = $username;
         $_SESSION["type"] = $row["status"];
-        header("Location: dashboard.php");
+        header("Location: sidebar.php");
         exit;
       }
     }
