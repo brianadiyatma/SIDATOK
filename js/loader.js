@@ -2,9 +2,10 @@ $(document).ready(function () {
   //Laman Pertama
   $("#content").load("dashboard.php ");
 
-  //handle menu clicks
-  $("#link").click(function () {
-    let page = $(this).attr('href');
-    alert(page)
+  //isi halaman
+  $("a").click(function () {
+    let page = $(this).attr("href");
+    $("#content").load(page + ".php");
+    return false;
   });
 });

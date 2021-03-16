@@ -193,6 +193,11 @@ a {
   color: #fff;
 }
 
+.reset-size {
+  width: 200px;
+  margin-top: 10px;
+}
+
 /* keluarkan menu */
 .showCollapse {
   display: inline-block;
@@ -202,4 +207,4 @@ a {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
-/*# sourceMappingURL=Sidebar.css.map */
+/*# sourceMappingURL=sidebar.css.map */

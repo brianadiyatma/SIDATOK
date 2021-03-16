@@ -36,7 +36,7 @@
               <ion-icon name="home-outline" class="nav_icon"></ion-icon>
               <span class="nav_name">Dashboard</span></a
             >
-            <a href="transaksi-kasir" id="link" class="nav_link">
+            <a href="transaksi-kasir" id="link"class="nav_link">
               <ion-icon name="cash-outline" class="nav_icon"></ion-icon>
               <span class="nav_name">Transaksi Kasir</span>
             </a>
@@ -46,8 +46,8 @@
               <span class="nav_name">Inventaris</span>
               <ion-icon name="chevron-down-outline" class="sub-menu"></ion-icon>
               <ul class="collapse_menu">
-                <a href="import-manual" id="link" class="collapse_sublink"> Import Manual</a>
-                <a href="import-csv" class="collapse_sublink" id="link">Import Dengan CSV</a>
+                <a href="import-manual" id="link" class="collapse_sublink"> <div class="reset-size"> <p>Import Manual</p></div></a>
+                <a href="import-csv" class="collapse_sublink" id="link"><div class="reset-size"> <p>Import Dengan CSV</p></div></a>
               </ul>
             </div>
 
@@ -58,10 +58,10 @@
               <ion-icon name="chevron-down-outline" class="sub-menu"></ion-icon>
               <ul class="collapse_menu">
                 <li>
-                  <a href="data-transaksi" class="collapse_sublink" id="link">Data Transaksi </a>
+                  <a href="data-transaksi" class="collapse_sublink" id="link"><div class="reset-size"> <p>Data Transaksi</p></div> </a>
                 </li>
                 <li>
-                  <a href="laporan-keuangan" class="collapse_sublink" id="link">Laporan Keuangan</a>
+                  <a href="laporan-keuangan" class="collapse_sublink" id="link"><div class="reset-size"> <p>Laporan keuangan</p></div></a>
                 </li>
               </ul>
             </div>
