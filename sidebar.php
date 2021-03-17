@@ -63,6 +63,9 @@
                 <li>
                   <a href="laporan-keuangan" class="collapse_sublink" id="link"><div class="reset-size"> <p>Laporan keuangan</p></div></a>
                 </li>
+                <li>
+                  <a href="data-Pengeluaran" class="collapse_sublink" id="link"><div class="reset-size"> <p>Data Pengeluaran</p></div></a>
+                </li>
               </ul>
             </div>
             <a href="manajemen-akun" class="nav_link" id="link">

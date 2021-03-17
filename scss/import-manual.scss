@@ -1,0 +1,53 @@
+@import "_resets.scss";
+@import "_variables.scss";
+
+body {
+  background-color: $bg-color;
+}
+
+header {
+  width: max-width;
+  color: white;
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
+  h1 {
+    text-align: center;
+  }
+}
+
+.container-input {
+  margin-top: 30px;
+  width: 1000px;
+  height: 580px;
+  background-color: $tertiary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: 0.5s;
+}
+.import-barang {
+  margin: 40px 40px 40px 40px;
+  display: flex;
+  textarea {
+    resize: none;
+    height: 100px;
+  }
+  .splitter-flex{
+      margin-right: 20px
+  }
+  .form {
+    @include form(100px);
+    margin-top: 10px;
+  }
+  p {
+    text-align: center;
+    color: white;
+  }
+}
