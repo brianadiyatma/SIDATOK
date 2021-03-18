@@ -1,30 +1,12 @@
 <?php
-session_start();
-if(isset($_SESSION["login"])){
-  header("Location: sidebar.php");
-  exit;
-}
 require_once 'connect.php';
+if(isset($_SESSION["login"])){
+  sdhLogin();
+}
 if(isset($_POST["login"])){
-  if($_POST["username"] != "" || $_POST["password"] != ""){
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-    //ambil data username dari db
-    $result = mysqli_query($conn, "SELECT * FROM akun WHERE username = '$username'");
-    //cek username
-    if(mysqli_num_rows($result) === 1){
-      //cek password
-      $row = mysqli_fetch_assoc($result);
-      if(password_verify($password, $row["password"])){
-        $_SESSION["login"] = true;
-        $_SESSION["username"] = $username;
-        $_SESSION["type"] = $row["status"];
-        header("Location: sidebar.php");
-        exit;
-      }
-    }
-  }
-  $error = true;
+  login($_POST["username"], $_POST["password"], $_POST["type"]);
+  $_SESSION["error"] = true;
+  header("Location: ./");
 }
 ?>
 <!DOCTYPE html>
@@ -49,7 +31,7 @@ if(isset($_POST["login"])){
         <img src="./assets/img/img-login/undraw_male_avatar_323b.svg" alt="" />
         <div class="input-username">
           <h2>Sign-In</h2>
-          <?php if(isset($error)):?>
+          <?php if(isset($_SESSION["error"])):?>
             <p style="color:red; margin:auto; width:200px; text-align:center;">Username / Password salah</p>
           <?php endif;?>
           <h5>Username</h5>

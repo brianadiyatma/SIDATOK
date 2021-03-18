@@ -1,8 +1,10 @@
 <?php 
-  session_start();
+  require_once 'connect.php';
   if(!isset($_SESSION["login"])){
-    header("Location: login.php");
-    exit;
+    belumLogin();
+  }
+  if (isset($_POST["add-item"])){
+
   }
 ?>
 <!DOCTYPE html>

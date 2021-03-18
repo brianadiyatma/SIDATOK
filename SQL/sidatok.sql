@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2021 at 02:19 PM
+-- Generation Time: Mar 18, 2021 at 10:24 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -43,6 +43,24 @@ INSERT INTO `akun` (`id`, `username`, `password`, `status`) VALUES
 (2, 'nabil1', '$2y$10$Yb0UXy5QnoNareqhnh7kpOm3sXwst2qdRqtBDux3.ksyI0Zq3S4hK', 'admin'),
 (3, 'nabil2', '$2y$10$Xxk.wgl2TsL8s3bWPNUpSeH5pq5l.ONTOWDYskgHcKW4hQEhurNrS', 'user');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_barang`
+--
+
+CREATE TABLE `data_barang` (
+  `barcode` int(11) NOT NULL,
+  `nama_barang` text NOT NULL,
+  `harga_beli` int(11) NOT NULL,
+  `harga_jual` int(11) NOT NULL,
+  `expired` date NOT NULL,
+  `harga_grosir` int(11) NOT NULL,
+  `jenis_barang` text NOT NULL,
+  `jumlah_barang` int(11) NOT NULL,
+  `deskripsi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
@@ -52,6 +70,12 @@ INSERT INTO `akun` (`id`, `username`, `password`, `status`) VALUES
 --
 ALTER TABLE `akun`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_barang`
+--
+ALTER TABLE `data_barang`
+  ADD PRIMARY KEY (`barcode`);
 
 --
 -- AUTO_INCREMENT for dumped tables
