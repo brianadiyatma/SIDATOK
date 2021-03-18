@@ -34,41 +34,41 @@ if(!isset($_SESSION["login"])){
             <div class="splitter-flex">
                 <div class="Nama-barang">
                     <p>Nama Barang</p>
-                    <input type="text" class="form" name="nama_barang">
+                    <input type="text" class="form" name="nama_barang" required>
                 </div>
                 <div class="barcode">
                     <p>Barcode</p>
-                    <input type="number" class="form" name="barcode">
+                    <input type="number" class="form" name="barcode" required>
                 </div>
                 <div class="Harga-beli">
                     <p>Harga Beli</p>
-                    <input type="text" class="form" name="harga_beli">
+                    <input type="text" class="form" name="harga_beli" required>
                 </div>
                 <div class="harga-jual">
                     <p>Harga Jual</p>
-                    <input type="text" class="form" name="harga_jual">
+                    <input type="text" class="form" name="harga_jual" required>
                 </div>
                 <div class="expired">
                     <p>Expired</p>
-                    <input type="date" class="form" name="expired">
+                    <input type="date" class="form" name="expired" required>
                 </div>
             </div>
             <div class="splitter-flex2">
                 <div class="harga-grosir">
                     <p>Harga Grosir</p>
-                    <input type="text" class="form" name="harga_grosir">
+                    <input type="text" class="form" name="harga_grosir" required>
                 </div>
                 <div class="jenis-barang">
                     <p>jenis barang</p>
-                    <input type="text" class="form" name="jenis_barang">
+                    <input type="text" class="form" name="jenis_barang" required>
                 </div>
                 <div class="jumlah-barang">
                     <p>Jumlah Barang</p>
-                    <input type="text" class="form" name="jumlah_barang">
+                    <input type="text" class="form" name="jumlah_barang" required>
                 </div>
                 <div class="deskripsi-singkat">
                     <p>Deskripsi Singkat</p>
-                    <textarea type="text" class="form" name="deskripsi"></textarea>
+                    <textarea type="text" class="form" name="deskripsi" required></textarea>
                 </div>
             </div>
         </div>

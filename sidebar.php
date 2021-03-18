@@ -4,7 +4,11 @@
     belumLogin();
   }
   if (isset($_POST["add-item"])){
-
+    if (tambahBarang($_POST) > 0){
+      echo "<script>alert('data berhasil dimasukkan')</script>";
+    }else{
+      echo "<script>alert('data tidak berhasil dimasukkan')</script>";
+    }
   }
 ?>
 <!DOCTYPE html>
