@@ -3,20 +3,7 @@ require_once 'connect.php';
 if(!isset($_SESSION["login"])){
     belumLogin();
 }
-// if (isset($_POST["add-item"])){
-//     //header("Location: sidebar.php");
-    
-//     echo "<script>
-//     $(document).ready(function () {
-//         //Laman Pertama
-//         $('#content').load('import-manual.php ');
-//     });
-//             </script>";
-//     // if (tambahBarang($_POST) > 0){
-
-//     // }
-// }
-// ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,9 +14,10 @@ if(!isset($_SESSION["login"])){
     <link rel="stylesheet" href="./css/import-manual.css">
 </head>
 <body>
-    <header> <h1>IMPORT MANUAL</h1></header>
+    <div class="margin-helper">
     <div class="container-input">
-    <form action="" method="POST">
+    <h1>IMPORT MANUAL</h1>
+    <form method="POST" id="form-import">
         <div class="import-barang">
             <div class="splitter-flex">
                 <div class="Nama-barang">
@@ -70,10 +58,13 @@ if(!isset($_SESSION["login"])){
                     <p>Deskripsi Singkat</p>
                     <textarea type="text" class="form" name="deskripsi" required></textarea>
                 </div>
+                <button type="submit" class="btn" name="add-item"   id="tambah-item">Tambah</button>
             </div>
         </div>
-        <input type="submit" class="btn" name="add-item" value="Tambah">
+        <script src="./js/import-barang.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </form>
+    </div>
     </div>
 </body>
 </html>

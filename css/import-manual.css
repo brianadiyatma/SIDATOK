@@ -39,27 +39,11 @@ body {
   background-color: #303030;
 }
 
-header {
-  width: max-width;
-  color: white;
-  margin: 0px;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-header h1 {
-  text-align: center;
-}
-
 .container-input {
   margin-top: 30px;
   width: 1000px;
   height: 580px;
   background-color: #543864;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -78,11 +62,23 @@ header h1 {
   transition: 0.5s;
 }
 
+.container-input h1 {
+  color: white;
+  text-align: center;
+}
+
+.margin-helper {
+  margin-top: 10%;
+}
+
 .import-barang {
   margin: 40px 40px 40px 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .import-barang textarea {

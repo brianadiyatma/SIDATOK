@@ -1,3 +1,5 @@
+"use strict";
+
 $(document).ready(function () {
   //Laman Pertama
   $("#content").load("dashboard.php ");

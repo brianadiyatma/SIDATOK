@@ -207,4 +207,11 @@ a {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
+
+#content {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 /*# sourceMappingURL=sidebar.css.map */

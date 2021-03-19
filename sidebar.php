@@ -2,14 +2,7 @@
   require_once 'connect.php';
   if(!isset($_SESSION["login"])){
     belumLogin();
-  }
-  if (isset($_POST["add-item"])){
-    if (tambahBarang($_POST) > 0){
-      echo "<script>alert('data berhasil dimasukkan')</script>";
-    }else{
-      echo "<script>alert('data tidak berhasil dimasukkan')</script>";
-    }
-  }
+  } 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,6 +47,7 @@
               <ul class="collapse_menu">
                 <a href="import-manual" id="link" class="collapse_sublink"> <div class="reset-size"> <p>Import Manual</p></div></a>
                 <a href="import-csv" class="collapse_sublink" id="link"><div class="reset-size"> <p>Import Dengan CSV</p></div></a>
+                <a href="crud-table-inventory.php" class="collapse_sublink" id="link"><div class="reset-size"> <p>CRUD Table</p></div></a>
               </ul>
             </div>
 
@@ -95,7 +89,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Javascript Internal -->
     <script src="./js/sidebar.js"></script>
-    <script src="./js/loader.js"></script>
+    <?php if (isset($_POST["add-item"])){
+    tambahBarang($_POST);
+    echo "<script> $(document).ready(function () {
+  //Laman Pertama
+  
+  $('#content').load('import-manual.php ');
+  $('a').click(function () {
+    let page = $(this).attr('href');
+    $('#content').load(page + '.php');
+    return false;
+
     
+  });
+});
+document.querySelector('.nav-link').classList.remove('active'); 
+  </script>";}else{?>
+    <script src="./js/loader.js"></script>
+    <?php }?>
   </body>
 </html>
