@@ -1,12 +1,14 @@
-///AJAX LAMAN IMPORT MANUAL
 $(document).ready(function () {
-  $("#tambah-item").click(function () {
-    var data = $("#form-import").serialize();
+  $("#form-import").submit(function (e) {
+    console.log("oke");
     $.ajax({
       type: "POST",
-      url: "sidebar.php",
-      data: data,
-      cache: false,
+      url: "insert.php",
+      data: $("#form-import").serialize(),
+      success: function () {
+        $(".form").val("");
+      },
     });
+    e.preventDefault();
   });
 });

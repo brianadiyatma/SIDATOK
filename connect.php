@@ -1,4 +1,5 @@
 <?php
+//require_once 'js/loader.php';
 session_start();
 $conn = mysqli_connect('localhost','root','','sidatok');
 function login($username,$password,$type){

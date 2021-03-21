@@ -1,8 +1,18 @@
 <?php 
-  require_once 'connect.php';
-  if(!isset($_SESSION["login"])){
+require_once 'connect.php';
+require_once 'loader.php';
+if(!isset($_SESSION["login"])){
     belumLogin();
-  } 
+  }
+if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+    isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+    $ssl = 'https';
+}
+else {
+    $ssl = 'http';
+}
+$app_url = "http://localhost/";
+//($ssl)."://".$_SERVER['HTTP_HOST'].(dirname($_SERVER["SCRIPT_NAME"]) == DIRECTORY_SEPARATOR ? "" : "/").trim(str_replace("\\", "/", dirname($_SERVER["SCRIPT_NAME"])), "/");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,12 +41,12 @@
             <a href="#" class="nav_logo">SIDATOK</a>
           </div>
           <div class="nav_list">
-            <a href="dashboard" id="link"class="nav_link active">
+            <a id="link"class="nav_link active" call_type = "dashboard">
               <ion-icon name="home-outline" class="nav_icon"></ion-icon>
-              <span class="nav_name">Dashboard</span></a
+              <span class="nav_name" >Dashboard</span></a
             >
-            <a href="transaksi-kasir" id="link"class="nav_link">
-              <ion-icon name="cash-outline" class="nav_icon"></ion-icon>
+            <a id="link"class="nav_link" call_type = "transaksi-kasir">
+              <ion-icon name="cash-outline" class="nav_icon" ></ion-icon>
               <span class="nav_name">Transaksi Kasir</span>
             </a>
 
@@ -45,9 +55,9 @@
               <span class="nav_name">Inventaris</span>
               <ion-icon name="chevron-down-outline" class="sub-menu"></ion-icon>
               <ul class="collapse_menu">
-                <a href="import-manual" id="link" class="collapse_sublink"> <div class="reset-size"> <p>Import Manual</p></div></a>
-                <a href="import-csv" class="collapse_sublink" id="link"><div class="reset-size"> <p>Import Dengan CSV</p></div></a>
-                <a href="crud-table-inventory.php" class="collapse_sublink" id="link"><div class="reset-size"> <p>CRUD Table</p></div></a>
+                <a id="link" class="collapse_sublink"call_type = 'import-manual' ><div class="reset-size"> <p>Import Manual</p></div></a>
+                <a class="collapse_sublink" id="link"call_type = 'import-csv'><div class="reset-size"> <p>Import Dengan CSV</p></div></a>
+                <a class="collapse_sublink" id="link"call_type = 'crud-table-inventory'><div class="reset-size"> <p>CRUD Table</p></div></a>
               </ul>
             </div>
 
@@ -58,23 +68,23 @@
               <ion-icon name="chevron-down-outline" class="sub-menu"></ion-icon>
               <ul class="collapse_menu">
                 <li>
-                  <a href="data-transaksi" class="collapse_sublink" id="link"><div class="reset-size"> <p>Data Transaksi</p></div> </a>
+                  <a  class="collapse_sublink" id="link"call_type = "data-transaksi"><div class="reset-size"> <p>Data Transaksi</p></div> </a>
                 </li>
                 <li>
-                  <a href="laporan-keuangan" class="collapse_sublink" id="link"><div class="reset-size"> <p>Laporan keuangan</p></div></a>
+                  <a  class="collapse_sublink" id="link"call_type = "laporan-keuangan"><div class="reset-size"> <p>Laporan keuangan</p></div></a>
                 </li>
                 <li>
-                  <a href="data-Pengeluaran" class="collapse_sublink" id="link"><div class="reset-size"> <p>Data Pengeluaran</p></div></a>
+                  <a  class="collapse_sublink" id="link"call_type = "data-pengeluaran"><div class="reset-size"> <p>Data Pengeluaran</p></div></a>
                 </li>
               </ul>
             </div>
-            <a href="manajemen-akun" class="nav_link" id="link">
+            <a  class="nav_link" id="link" call_type = "manajemen-akun">
               <ion-icon name="man-outline" class="nav_icon"></ion-icon>
-              <span class="nav_name">Manajemen Akun</span></a
+              <span class="nav_name" >Manajemen Akun</span></a
             >
           </div>
-        </div>
-        <a href="profile" class="nav_link" id="link">
+        </div>  
+        <a class="nav_link" id="link">
           <ion-icon name="person-outline" class="nav_icon"></ion-icon>
           <span class="nav_name"><?php echo $_SESSION["username"];?></span></a
         >
@@ -89,23 +99,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Javascript Internal -->
     <script src="./js/sidebar.js"></script>
-    <?php if (isset($_POST["add-item"])){
-    tambahBarang($_POST);
-    echo "<script> $(document).ready(function () {
-  //Laman Pertama
-  
-  $('#content').load('import-manual.php ');
-  $('a').click(function () {
-    let page = $(this).attr('href');
-    $('#content').load(page + '.php');
-    return false;
-
-    
-  });
-});
-document.querySelector('.nav-link').classList.remove('active'); 
-  </script>";}else{?>
     <script src="./js/loader.js"></script>
-    <?php }?>
   </body>
-</html>
+</html> 

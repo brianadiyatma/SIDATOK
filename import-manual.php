@@ -3,6 +3,12 @@ require_once 'connect.php';
 if(!isset($_SESSION["login"])){
     belumLogin();
 }
+    $nama = $_SERVER['SCRIPT_NAME'];
+    if ($nama != ''){
+        header("Location: ./");
+        exit;
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +23,7 @@ if(!isset($_SESSION["login"])){
     <div class="margin-helper">
     <div class="container-input">
     <h1>IMPORT MANUAL</h1>
-    <form method="POST" id="form-import">
+    <form method="POST" id="form-import" action="insert.php">
         <div class="import-barang">
             <div class="splitter-flex">
                 <div class="Nama-barang">
@@ -58,11 +64,11 @@ if(!isset($_SESSION["login"])){
                     <p>Deskripsi Singkat</p>
                     <textarea type="text" class="form" name="deskripsi" required></textarea>
                 </div>
-                <button type="submit" class="btn" name="add-item"   id="tambah-item">Tambah</button>
+                <input type="submit" class="btn">
             </div>
         </div>
-        <script src="./js/import-barang.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="./js/import-barang.js"></script>
     </form>
     </div>
     </div>
