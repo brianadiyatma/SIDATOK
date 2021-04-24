@@ -21,7 +21,7 @@ if(!isset($_SESSION["login"])){
 </head>
 <body>
     <div class="margin-helper">
-    <div class="container-input">
+    <div class="container-input" style="color: #27293D;">
     <h1>IMPORT MANUAL</h1>
     <form method="POST" id="form-import" action="insert.php">
         <div class="import-barang">
@@ -64,7 +64,7 @@ if(!isset($_SESSION["login"])){
                     <p>Deskripsi Singkat</p>
                     <textarea type="text" class="form" name="deskripsi" required></textarea>
                 </div>
-                <input type="submit" class="btn">
+                <input type="submit" class="btn" value="Tambah"> 
             </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
