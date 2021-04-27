@@ -59,6 +59,7 @@ if(!isset($_SESSION["login"])){
                 <div class="jumlah-barang">
                     <p>Jumlah Barang</p>
                     <input type="text" class="form" name="jumlah_barang" required>
+                    <input type="hidden" name = "aksi" value = "masuk" required>
                 </div>
                 <div class="deskripsi-singkat">
                     <p>Deskripsi Singkat</p>

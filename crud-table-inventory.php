@@ -22,8 +22,8 @@
       <p>
         Item yang sudah dihapus tidak bisa dikembalikan kembali apakah anda yakin ingin menghapus ?
       </p>
-            <button type="submit" class="btn-affirmative iya" id="iya">Iya</button>
-            <button type="submit" class="btn tidak" id= "tidak">Tidak</button>
+            <button type="button" class="btn-affirmative iya" id="iya">Iya</button>
+            <button type="button" class="btn tidak" id= "tidak">Tidak</button>
     </div>
         <div class="overlay hidden"></div>
  <div class="modal-2 hidden">
@@ -71,7 +71,7 @@
                     <p>Deskripsi Singkat</p>
                     <textarea type="text" class="form" name="deskripsi" id="deskripsi-singkat"></textarea>
                 </div>
-                <input type="submit" value="Edit" class="btn-affirmative iya" id="edit">
+                <input type="submit" value="Edit" class="btn-affirmative edit" id="edit">
             <button type="button" class="btn tidak" id= "batal">Batal</button>
             </div>
         </div>

@@ -48,7 +48,7 @@ $(document).ready(function () {
             $("#deskripsi-singkat").val(deskripsi);
             $("#userID").val(id);
           });
-          $("#edit").click(function () {
+          $("#edit").click(function (e) {
             let nama_barang = $("#Nama-barang").val();
             let barcode = $("#barcode").val();
             let harga_beli = $("#Harga-beli").val();
@@ -62,7 +62,7 @@ $(document).ready(function () {
 
             $.ajax({
               url: "insert.php",
-              method: "post",
+              method: "POST",
               data: {
                 nama_barang: nama_barang,
                 barcode: barcode,
@@ -74,13 +74,64 @@ $(document).ready(function () {
                 jumlah_barang: jumlah_barang,
                 deskripsi: deskripsi,
                 id: id,
+                aksi: "edit",
               },
               success: function (response) {
                 console.log("data berhasil di edit :))))");
+                nama_barang = $("#" + id)
+                  .children("td[data-target=nama_barang]")
+                  .text(nama_barang);
+                barcode = $("#" + id)
+                  .children("td[data-target=barcode]")
+                  .text(barcode);
+                harga_beli = $("#" + id)
+                  .children("td[data-target=harga_beli]")
+                  .text(harga_beli);
+                harga_jual = $("#" + id)
+                  .children("td[data-target=harga_jual]")
+                  .text(harga_jual);
+                harga_grosir = $("#" + id)
+                  .children("td[data-target=harga_grosir]")
+                  .text(harga_grosir);
+                expired = $("#" + id)
+                  .children("td[data-target=expired]")
+                  .text(expired);
+                jenis_barang = $("#" + id)
+                  .children("td[data-target=jenis_barang]")
+                  .text(jenis_barang);
+                jumlah_barang = $("#" + id)
+                  .children("td[data-target=jumlah_barang]")
+                  .text(jumlah_barang);
+                deskripsi = $("#" + id)
+                  .children("td[data-target=deskripsi]")
+                  .text(deskripsi);
               },
+            });
+            e.preventDefault();
+          });
+        });
+
+        $(document).ready(function () {
+          $(document).on("click", 'button[id="delete"]', function () {
+            let id = $(this).data("id");
+            $("#iya").click(function (e) {
+              $.ajax({
+                url: "insert.php",
+                method: "POST",
+                data: {
+                  id: id,
+                  aksi: "hapus",
+                },
+                success: function (response) {
+                  console.log("data berhasil di hapus");
+                  $(`#${id}`).remove();
+                },
+              });
+              e.preventDefault();
             });
           });
         });
+
         for (let i = 0; i < document.querySelectorAll(".delete").length; i++) {
           document
             .querySelectorAll(".delete")
@@ -127,7 +178,7 @@ $(document).ready(function () {
   });
 });
 
-$(document).ready(function () {
+/* $(document).ready(function () {
   $("#form-edit").submit(function (e) {
     console.log("oke");
     $.ajax({
@@ -141,3 +192,4 @@ $(document).ready(function () {
     e.preventDefault();
   });
 });
+ */
