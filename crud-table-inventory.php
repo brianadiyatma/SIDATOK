@@ -1,3 +1,12 @@
+<?php
+    $conn = mysqli_connect('localhost','root','','sidatok');
+    $result = mysqli_query($conn, "SELECT * FROM data_barang");
+    $nama = $_SERVER['SCRIPT_NAME'];
+    if ($nama != ''){
+        header("Location: ./");
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +16,68 @@
     <link rel="stylesheet" href="./css/crud.css">
 </head>
 <body>
-    <?php
-    $nama = $_SERVER['SCRIPT_NAME'];
-    if ($nama != ''){
-        header("Location: ./");
-        exit;
-    }
-?>
+ <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <h1>Hapus Item</h1>
+      <p>
+        Item yang sudah dihapus tidak bisa dikembalikan kembali apakah anda yakin ingin menghapus ?
+      </p>
+            <button type="submit" class="btn-affirmative iya" id="iya">Iya</button>
+            <button type="submit" class="btn tidak" id= "tidak">Tidak</button>
+    </div>
+        <div class="overlay hidden"></div>
+ <div class="modal-2 hidden">
+      <button class="close-modal">&times;</button>
+      <h1>EDIT DATA</h1>
+    <form id="form-edit">
+        <div class="import-barang">
+            <div class="splitter-flex">
+                <div class="Nama-barang">
+                    <p>Nama Barang</p>
+                    <input type="text" id="Nama-barang"class="form" name="nama_barang">
+                </div>
+                <div class="barcode">
+                    <p>Barcode</p>
+                    <input type="number" id="barcode" class="form" name="barcode">
+                </div>
+                <div class="Harga-beli">
+                    <p>Harga Beli</p>
+                    <input type="text" id="Harga-beli" class="form" name="harga_beli">
+                </div>
+                <div class="harga-jual">
+                    <p>Harga Jual</p>
+                    <input type="text" id="harga-jual" class="form" name="harga_jual">
+                </div>
+                <div class="expired">
+                    <p>Expired</p>
+                    <input type="date" id="expired" class="form" name="expired">
+                </div>
+            </div>
+            <div class="splitter-flex2">
+                <div class="harga-grosir">
+                    <p>Harga Grosir</p>
+                    <input type="text" class="form" name="harga_grosir" id="harga-grosir">
+                </div>
+                <div class="jenis-barang">
+                    <p>jenis barang</p>
+                    <input type="text" class="form" name="jenis_barang" id="jenis-barang">
+                </div>
+                <div class="jumlah-barang">
+                    <p>Jumlah Barang</p>
+                    <input type="text" class="form" name="jumlah_barang" id="jumlah-barang">
+                    <input type="hidden" class="form" name="jumlah_barang" id="userID">
+                </div>
+                <div class="deskripsi-singkat">
+                    <p>Deskripsi Singkat</p>
+                    <textarea type="text" class="form" name="deskripsi" id="deskripsi-singkat"></textarea>
+                </div>
+                <input type="submit" value="Edit" class="btn-affirmative iya" id="edit">
+            <button type="button" class="btn tidak" id= "batal">Batal</button>
+            </div>
+        </div>
+    </form>
+    </div>
+        <div class="overlay-2 hidden"></div>
 <div class="title"><h1>Crud Tabel Inventaris</h1></div>
 <div class="crud">
 <div class="search">
@@ -21,67 +85,7 @@
     <label for="search" style="color: white;">Pencarian : </label>
     <input type="text" class="form" name="search">
 </div>
-<table style="width:100%">
-  <table class="content-table">
-  <thead>
-    <tr>
-    <th>Nama Barang</th>
-    <th>Barcode</th>
-    <th>Harga Beli</th>
-    <th>Harga Jual</th>
-    <th>Harga Grosir</th>
-    <th>Expired</th>
-    <th>Jenis Barang</th>
-    <th>Jumlah Barang</th>
-    <th>Aksi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-        <td>Aqua 1500Ml</td>
-        <td>150842458</td>
-        <td>4500</td>
-        <td>5000</td>
-        <td>4700</td>
-        <td>12/05/2025</td>
-        <td>Minuman</td>
-        <td>50</td>
-        <td>
-           <button type="submit" class="btn-affirmative"> Edit</button>
-            <button type="submit" class="btn"> Delete</button>
-        </td>
-    </tr>
-    <tr class="active-row">
-        <td>Aqua 1500Ml</td>
-        <td>150842458</td>
-        <td>4500</td>
-        <td>5000</td>
-        <td>4700</td>
-        <td>12/05/2025</td>
-        <td>Minuman</td>
-        <td>50</td>
-         <td>
-            <button type="submit" class="btn-affirmative"> Edit</button>
-            <button type="submit" class="btn" > Delete</button>
-        </td>
-    </tr>
-    <tr>
-        <td>Aqua 1500Ml</td>
-        <td>150842458</td>
-        <td>4500</td>
-        <td>5000</td>
-        <td>4700</td>
-        <td>12/05/2025</td>
-        <td>Minuman</td>
-        <td>50</td>
-         <td>
-            <button type="submit" class="btn-affirmative"> Edit</button>
-            <button type="submit" class="btn"> Delete</button>
-        </td>
-    </tr>
-  </tbody>
-</table>
-</table>
+<div id="tabelcrud"></div>
 <div class="pagination">
   <a href="#">&laquo;</a>
   <a href="#">1</a>
@@ -92,6 +96,7 @@
   <a href="#">6</a>
   <a href="#">&raquo;</a>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="./js/crud.js"></script>
 </body>
 </html>

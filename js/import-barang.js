@@ -7,6 +7,7 @@ $(document).ready(function () {
       data: $("#form-import").serialize(),
       success: function () {
         $(".form").val("");
+        console.log("data dikirim");
       },
     });
     e.preventDefault();

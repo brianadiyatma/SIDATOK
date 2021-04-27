@@ -1,5 +1,6 @@
 <?php 
     $data = $_POST;
+    var_dump($data);
     $conn = mysqli_connect('localhost','root','','sidatok');
     $namaBarang = htmlspecialchars($data["nama_barang"]);
     $barcode = htmlspecialchars($data["barcode"]);
@@ -15,4 +16,13 @@
             '$hargaGrosir', '$jenisBarang', '$jumlahBarang', '$deskripsi')";
     mysqli_query($conn, $query);
     //return mysqli_affected_rows($conn);
+
+    if(isset($_POST['id'])){
+        $id = $_POST['id'];
+        $nama_barang = $_POST['nama_barang'];
+        $barcode = $_POST['barcode'];
+        $harga_beli = $_POST['harga_beli'];
+        $harga_jual = $_POST['harga_jual'];
+        
+    }
 ?>
