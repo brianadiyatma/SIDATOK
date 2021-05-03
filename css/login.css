@@ -145,10 +145,10 @@ body {
 }
 
 .form {
-  width: 100%;
+  width: 50px;
   background: none;
   border: 1px solid #ff6464;
-  padding: 8px 50px;
+  padding: 8px 15px;
   border-radius: 50px;
   letter-spacing: 1px;
   color: white;
@@ -168,10 +168,10 @@ body {
             justify-content: center;
   }
   .form {
-    width: 100%;
+    width: 30px;
     background: none;
     border: 1px solid #ff6464;
-    padding: 8px 30px;
+    padding: 8px 15px;
     border-radius: 50px;
     letter-spacing: 1px;
     color: white;

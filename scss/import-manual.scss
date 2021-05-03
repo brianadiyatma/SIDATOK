@@ -37,9 +37,13 @@ body {
   }
   .splitter-flex {
     margin-right: 20px;
+    width: 30%;
+  }
+  .splitter-flex2 {
+    width: 30%;
   }
   .form {
-    @include form(100px);
+    @include form(100%);
     margin-top: 10px;
   }
   p {

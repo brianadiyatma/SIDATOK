@@ -25,6 +25,7 @@
     }elseif($_POST['aksi']=="hapus"){
         $id = $_POST['id'];
         $query = "DELETE FROM data_barang WHERE id = '$id'";
+            echo '<h1>hello world</h1>';
         mysqli_query($conn, $query);
     }elseif($_POST['aksi']=="masuk"){
         $data = $_POST;

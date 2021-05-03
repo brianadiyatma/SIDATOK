@@ -36,7 +36,6 @@ $(document).ready(function () {
             let deskripsi = $("#" + id)
               .children("td[data-target=deskripsi]")
               .text();
-            console.log(expired);
             $("#Nama-barang").val(nama_barang);
             $("#barcode").val(barcode);
             $("#Harga-beli").val(harga_beli);
@@ -177,19 +176,3 @@ $(document).ready(function () {
     success: function () {},
   });
 });
-
-/* $(document).ready(function () {
-  $("#form-edit").submit(function (e) {
-    console.log("oke");
-    $.ajax({
-      type: "POST",
-      url: "insert.php",
-      data: $("#form-edit").serialize(),
-      success: function () {
-        $(".form").val("");
-      },
-    });
-    e.preventDefault();
-  });
-});
- */

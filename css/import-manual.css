@@ -114,13 +114,18 @@ body {
 
 .import-barang .splitter-flex {
   margin-right: 20px;
+  width: 30%;
+}
+
+.import-barang .splitter-flex2 {
+  width: 30%;
 }
 
 .import-barang .form {
   width: 100%;
   background: none;
   border: 1px solid #ff6464;
-  padding: 8px 100px;
+  padding: 8px 15px;
   border-radius: 50px;
   letter-spacing: 1px;
   color: white;

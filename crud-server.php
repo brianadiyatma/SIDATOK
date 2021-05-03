@@ -36,9 +36,11 @@
                 <button type="submit" class="btn-affirmative edit" id="edit" data-id='.$row["id"].'> Edit</button>
                 <button type="submit" class="btn delete" id="delete" data-id='.$row["id"].'> Delete</button>
             </td>
-        </tr>';
+        </tr> ';
+        
         $a++;
     }
+
     $output .= '</tbody></table>';
     echo $output;
 ?>
