@@ -83,18 +83,13 @@
 <div class="search">
     <h1 style="color: white;"></h1>
     <label for="search" style="color: white;">Pencarian : </label>
-    <input type="text" class="form" name="search">
+    <input type="text" class="form" name="search" id="search">
 </div>
-<div id="tabelcrud"></div>
+<div id="tabelcrud">
+
+</div>
 <div class="pagination">
-  <a href="#">&laquo;</a>
-  <a href="#">1</a>
-  <a href="#" class="active">2</a>
-  <a href="#">3</a>
-  <a href="#">4</a>
-  <a href="#">5</a>
-  <a href="#">6</a>
-  <a href="#">&raquo;</a>
+
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="./js/crud.js"></script>

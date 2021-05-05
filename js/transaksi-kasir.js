@@ -1,16 +1,27 @@
 $(document).ready(function () {
-  $("#barcode").keyup(function () {
+  loadData();
+  function loadData(search){
+    $.ajax({
+      url : "transaksi-kasir-server.php",
+      type: "POST",
+      cache: false,
+      dataType: "json",
+      data:{search:search},
+      success:function(data){
+        $(".window-kasir2").html(data.res);
+        let grosir = data.grosir;
+        let umum = data.umum;
+        console.log(grosir);
+        console.log(umum);
+      }
+    });  
+  }
+  $(document).on("change", "#barcode", function (e) {
     let barcode = $(this).val();
     if (barcode != "") {
-      $.ajax({
-        url: "transaksi-kasir-server.php",
-        method: "post",
-        data: { search: barcode },
-        success: function (data) {
-          $("script").html(data);
-        },
-      });
+      loadData(barcode);
     } else {
+      loadData();
     }
   });
 });

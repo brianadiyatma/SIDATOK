@@ -1,6 +1,26 @@
 <?php
     $conn = mysqli_connect('localhost','root','','sidatok');
-    $result = mysqli_query($conn, "SELECT * FROM data_barang"); 
+    $record = 5;
+    $page = '';
+    $halaman = '';
+    if(isset($_POST['page'])){
+      $page = $_POST['page'];
+    }else{
+      $page = 1;
+    }
+    $start = ($page-1)*$record;
+    if(isset($_POST['search'])){
+      $sql="SELECT * FROM data_barang WHERE nama_barang LIKE '%".$_POST['search']."%' LIMIT $start, $record";
+      $pageQuery = "SELECT * FROM data_barang WHERE nama_barang LIKE '%".$_POST['search']."%'";
+
+    }else{
+      $sql="SELECT * FROM data_barang LIMIT $start, $record";
+      $pageQuery = "SELECT * FROM data_barang";
+    }
+    $result = mysqli_query($conn, $sql); 
+    $pageRes = mysqli_query($conn, $pageQuery);
+    $totalRec = mysqli_num_rows($pageRes);
+    $totalPages = ceil($totalRec/$record);
     $output = '
     <table style="width:100%">
     <table class="content-table">
@@ -19,7 +39,6 @@
         </tr>
       </thead>
     <tbody>';
-    $a=1;
     while($row = mysqli_fetch_assoc($result)){
       $output .= '
         <tr id='.$row["id"].'>
@@ -37,10 +56,13 @@
                 <button type="submit" class="btn delete" id="delete" data-id='.$row["id"].'> Delete</button>
             </td>
         </tr> ';
-        
-        $a++;
     }
-
     $output .= '</tbody></table>';
-    echo $output;
+    $halaman .= '
+    <span style="color:white;">Page '.$page.'-'.$totalPages.'</span>
+    <a href="#" class="previous" id="'.$page.'">&laquo;</a>
+    <a href="#">'.$page.'</a>
+    <a href="#" class="next" id="'.$page.'">&raquo;</a>';
+    
+    echo json_encode(['output'=>$output, 'halaman'=>$halaman, 'max'=>$totalPages]);
 ?>

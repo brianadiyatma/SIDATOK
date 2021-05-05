@@ -1,3 +1,10 @@
+<?php
+$nama = $_SERVER['SCRIPT_NAME'];
+if ($nama != ''){
+    header("Location: ./");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,40 +20,7 @@
 <div class="container-input">
     <form action="#">
     <div class="window-kasir2">
-        <div>
-            <p class="tag">Nama Barang</p>
-            <input class = "form" type="name" id="nama-barang" readonly>
-        </div>
-        <div>
-            <p class="tag">Barcode</p>
-            <input class = "form" type="name" id="barcode">
-        </div>
-        <div>
-            <p class="tag">Pelanggan</p>
-            <select name="" id="" class= "form">
-                <option value="grosir">Grosir</option>
-                <option value="umum">Umum</option>
-            </select>
-        </div>
-        <div>
-            <p class="tag">Harga</p>
-            <input readonly class = "form" type="name" id="harga">
-        </div>
-        <div>
-            <p class="tag">Jumlah</p>
-            <input class="form" type="name" value="1" id="jumlah">
-        </div>
-        <div>
-            <p class="tag">Stok</p>
-            <input readonly class="form" type="name" id="stok">
-        </div>
-        <div>
-            <p class="tag">Deskripsi</p>
-            <textarea readonly name="" id="" cols="10" rows="10" id="deskripsi" class = "form"></textarea>
-        </div>
-        <div>
-           <button class="btn" type="button">Tambah</button>
-        </div>
+        
     </div>   
     </form>
     <div class = "window-kasir3">
@@ -91,7 +65,7 @@
                 <form action="">
                     <div>
                         <p style="color: white;">Nama Pekerja :</p>
-                        <input class="form" type="text">
+                        <input class="form" type="text" id="nama-pekerja">
                     </div>
                     <div>
                         <p style="color: white;">Tanggal :</p>
@@ -110,5 +84,6 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="./js/transaksi-kasir.js"></script>
+<script id="script"></script>
 </body>
 </html>
