@@ -1,0 +1,85 @@
+//import untuk mengambil file SASS lainnya karena akan di gunakan kembali (reuse)
+@import "_resets.scss";
+@import "_variables.scss";
+
+body {
+  min-height: 100vh;
+  background-color: $bg-color;
+}
+
+//conainer untuk keseluruhan form login
+.container {
+  width: 1000px;
+  height: 580px;
+  background-color: $tertiary-color;
+  display: flex;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+//gambar orang dan grafik yang ada di bagian kiri form
+.login-img {
+  display: flex;
+  height: 100%;
+  width: 60%;
+  justify-content: center;
+  margin-left: 50px;
+  flex-direction: column;
+  color: white;
+  border-right: solid $primary-color;
+  text-align: center;
+  h1 {
+    margin-bottom: 50px;
+  }
+  img {
+    width: 450px;
+    margin-left: 50px;
+  }
+}
+
+//berisi form login dan gambar avatar icon
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  img {
+    width: 70px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  h5 {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+  }
+}
+.form {
+  @include form(250px);
+}
+
+@media (max-width: 900px) {
+  .login-container {
+    width: 100%;
+  }
+  .login-img {
+    display: none;
+  }
+  .container {
+    width: 300px;
+    justify-content: center;
+  }
+  .form {
+    @include form(250px);
+  }
+}
