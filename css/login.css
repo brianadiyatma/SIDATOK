@@ -145,7 +145,7 @@ body {
 }
 
 .form {
-  width: 50px;
+  width: 250px;
   background: none;
   border: 1px solid #ff6464;
   padding: 8px 15px;
@@ -168,7 +168,7 @@ body {
             justify-content: center;
   }
   .form {
-    width: 30px;
+    width: 250px;
     background: none;
     border: 1px solid #ff6464;
     padding: 8px 15px;

@@ -65,7 +65,7 @@ body {
   }
 }
 .form {
-  @include form(50px);
+  @include form(250px);
 }
 
 @media (max-width: 900px) {
@@ -80,6 +80,6 @@ body {
     justify-content: center;
   }
   .form {
-    @include form(30px);
+    @include form(250px);
   }
 }

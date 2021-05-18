@@ -78,7 +78,7 @@
     </form>
     </div>
         <div class="overlay-2 hidden"></div>
-<div class="title"><h1>CRUD Tabel Inventaris</h1></div>
+<div class="title"><h1>CRUD Tabel inventaris</h1></div>
 <div class="crud">
 <div class="search">
     <h1 style="color: white;"></h1>
