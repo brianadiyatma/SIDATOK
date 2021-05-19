@@ -8,11 +8,8 @@ $(document).ready(function () {
       dataType: "json",
       data: { search: search },
       success: function (data) {
-        $(".window-kasir2").html(data.res);
-        let grosir = data.grosir;
-        let umum = data.umum;
-        console.log(grosir);
-        console.log(umum);
+        let data_barang = data.res;
+        console.log(data_barang['barcode']);
       },
     });
   }
@@ -24,7 +21,7 @@ $(document).ready(function () {
       loadData();
     }
   });
-});
-document.querySelector(".tambah").addEventListener("click", function () {
-  console.log("hello world");
+  $(document).on("click", ".tambah", function () {
+    console.log("hello world");
+  });
 });

@@ -20,7 +20,40 @@ if ($nama != ''){
 <div class="container-input">
     <form action="#">
     <div class="window-kasir2">
-        
+    <div>
+            <p class="tag">Nama Barang</p>
+            <input class = "form" type="name" id="nama-barang" readonly>
+        </div>
+        <div>
+            <p class="tag">Barcode</p>
+            <input class = "form" type="name" id="barcode">
+        </div>
+        <div>
+            <p class="tag">Pelanggan</p>
+            <select name="" id="" class= "form">
+                <option value="umum">Umum</option>
+                <option value="grosir">Grosir</option>
+            </select>
+        </div>
+        <div>
+            <p class="tag">Harga</p>
+            <input readonly class = "form" type="name" id="harga">
+        </div>
+        <div>
+            <p class="tag">Jumlah</p>
+            <input class="form" type="name" value="1" id="jumlah">
+        </div>
+        <div>
+            <p class="tag">Stok</p>
+            <input readonly class="form" type="name" id="stok">
+        </div>
+        <div>
+            <p class="tag">Deskripsi</p>
+            <textarea readonly name="" id="" cols="10" rows="10" id="deskripsi" class = "form"></textarea>
+        </div>
+        <div>
+            <button class="btn" type="button">Tambah</button>
+        </div>
     </div>   
     </form>
     <div class = "window-kasir3">

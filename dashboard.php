@@ -1,3 +1,10 @@
+<?php
+    $nama = $_SERVER['SCRIPT_NAME'];
+    if ($nama != ''){
+        header("Location: ./");
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,13 +15,6 @@
     <link rel="stylesheet" href="./css/dashboard.css">
 </head>
 <body>
-    <?php
-    $nama = $_SERVER['SCRIPT_NAME'];
-    if ($nama != ''){
-        header("Location: ./");
-        exit;
-    }
-?>
 <h1 style="color: white; text-align : center">Dashboard</h1>
 <div class="flex-bagian1">
     <div class="window-dashboard1">

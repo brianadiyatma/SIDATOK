@@ -8,7 +8,7 @@
     }else{
       $page = 1;
     }
-    $start = ($page-1)*8;
+    $start = ($page-1)*5;
     if(isset($_POST['search'])){
       $sql="SELECT * FROM data_barang WHERE nama_barang LIKE '%".$_POST['search']."%' LIMIT $start, $record";
       $pageQuery = "SELECT * FROM data_barang WHERE nama_barang LIKE '%".$_POST['search']."%'";
@@ -21,6 +21,7 @@
     $pageRes = mysqli_query($conn, $pageQuery);
     $totalRec = mysqli_num_rows($pageRes);
     $totalPages = ceil($totalRec/$record);
+
     $output = '
     <table style="width:100%">
     <table class="content-table">
