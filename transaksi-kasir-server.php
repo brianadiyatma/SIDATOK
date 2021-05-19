@@ -2,6 +2,7 @@
     $conn = mysqli_connect('localhost','root','','sidatok');
     $grosir = 0;
     $umum = 0;
+    $output = '';
     if(isset($_POST['search'])){
         $search = $_POST['search'];
         $sql = "SELECT * FROM data_barang WHERE barcode = $search";

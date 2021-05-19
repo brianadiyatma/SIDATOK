@@ -15,7 +15,7 @@ if ($nama != ''){
     <link rel="stylesheet" href="./css/transaksi-kasir.css">
 </head>
 <body>
-<h1 class='title'>Transaksi Kasir</h1>
+<h1 class='title' style="text-align: center;">Transaksi Kasir</h1>
 <div class="container-keseluruhan">
 <div class="container-input">
     <form action="#">
@@ -30,14 +30,18 @@ if ($nama != ''){
         </div>
         <div>
             <p class="tag">Pelanggan</p>
-            <select name="" id="" class= "form">
+            <select name="" id="pelanggan" class= "form">
                 <option value="umum">Umum</option>
                 <option value="grosir">Grosir</option>
             </select>
         </div>
         <div>
-            <p class="tag">Harga</p>
-            <input readonly class = "form" type="name" id="harga">
+            <p class="tag">Harga Umum</p>
+            <input readonly class = "form" type="name" id="harga-umum">
+        </div>
+        <div>
+            <p class="tag">Harga Grosir</p>
+            <input readonly class = "form" type="name" id="harga-grosir">
         </div>
         <div>
             <p class="tag">Jumlah</p>
@@ -49,16 +53,19 @@ if ($nama != ''){
         </div>
         <div>
             <p class="tag">Deskripsi</p>
-            <textarea readonly name="" id="" cols="10" rows="10" id="deskripsi" class = "form"></textarea>
+            <textarea readonly name="" id="deskripsi" cols="10" rows="10" id="deskripsi" class = "form"></textarea>
         </div>
         <div>
-            <button class="btn" type="button">Tambah</button>
+            <button class="btn" type="button" id="batal-btn">Batal</button>
+        </div>
+        <div>
+            <button class="btn-affirmative" type="button" id="tambah-btn">Tambah</button>
         </div>
     </div>   
     </form>
     <div class = "window-kasir3">
     <h3 style="color: white;">Harga Total</h3>    
-    <h1 style="color: white; font-size: 100px;">69000</h1>
+    <h1 style="color: white; font-size: 100px;" id="harga-total">0</h1>
     
 </div>
 </div>
@@ -78,20 +85,7 @@ if ($nama != ''){
         <th>Aksi</th>
         </tr>
       </thead>
-    <tbody>
-            <tr id='.$row["id"].'>
-            <td data-target = "nama_barang">Rokok 76</td>
-            <td data-target = "barcode">54687523574</td>
-            <td data-target = "pelanggan">Grosir</td>
-            <td data-target = "harga-satuan">15000</td>
-            <td data-target = "jumlah-beli">2</td>
-            <td data-target = "subtotal">30000</td>
-            <td data-target = "jumlah_barang">100</td>
-            <td data-target = "deskripsi" style="width: 100px;">Minuman Segar Berhadiah</td>
-            <td style="width: 220px;">
-                <button type="submit" class="btn delete" id="delete" data-id='.$row["id"].'> Delete</button>
-            </td>
-            </tr>
+    <tbody class="tabel-kasir">
     </table>
     <div class = "container-bawah-tabel">
             <div class="container-bawah-tabel1">
