@@ -8,7 +8,7 @@
     }else{
       $page = 1;
     }
-    $start = ($page-1)*$record;
+    $start = ($page-1)*8;
     if(isset($_POST['search'])){
       $sql="SELECT * FROM data_barang WHERE nama_barang LIKE '%".$_POST['search']."%' LIMIT $start, $record";
       $pageQuery = "SELECT * FROM data_barang WHERE nama_barang LIKE '%".$_POST['search']."%'";

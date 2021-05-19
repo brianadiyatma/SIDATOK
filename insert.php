@@ -1,8 +1,5 @@
 <?php 
     $conn = mysqli_connect('localhost','root','','sidatok');
-    
-    //return mysqli_affected_rows($conn);
-
     if($_POST['aksi']=="edit"){
         $id = htmlspecialchars($_POST['id']);
         $nama_barang = htmlspecialchars($_POST['nama_barang']);
