@@ -84,7 +84,7 @@ $app_url = "http://localhost/";
             >
           </div>
         </div>  
-        <a class="nav_link" id="link">
+        <a class="nav_link" id="link" call_type = "profil">
           <ion-icon name="person-outline" class="nav_icon"></ion-icon>
           <span class="nav_name"><?php echo $_SESSION["username"];?></span></a
         >

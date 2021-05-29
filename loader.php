@@ -83,7 +83,7 @@ if(isset($_GET['call_type']))
 			'data'=>file_get_contents('data-pengeluaran.php'),
 		));
 	}
-	else if($call_type == "manajemen-akun")
+	else if($call_type == "manajemen-akun" || $call_type == "profil")
 	{
 		echo json_encode(array(
 			'status'=>'success',
