@@ -39,12 +39,41 @@
                 <td data-target = "jumlah-item">10</td>
                 <td data-target = "tanggal">10-May-2021</td>
                 <td style="width: 220px;">
-                    <button type="submit" class="btn delete" id="delete" data-id='.$row["id"].'> Delete</button>
-                    <button type="submit" class="btn-affirmative edit" id="edit" data-id='.$row["id"].'> Lihat</button>
+                    <button type="submit" class="btn delete" id="delete"> Delete</button>
+                    <button type="submit" class="btn-affirmative lihat" id="lihat"> Lihat</button>
                 </td>
                 </tr>
             </table>
         </div>
 </div>
+<div class="modal-window-lihat hidden">
+    <button class="close-modal">&times;</button>
+    <h1 style="color: white; text-align: center;">Hapus Data</h1>
+        <table class="content-table">
+      <thead>
+        <tr>
+        <th>Nama Barang</th>
+        <th>Barcode</th>
+        <th>Pelanggan</th>
+        <th>Harga Satuan</th>
+        <th>QTY</th>
+        <th>Subtotal</th>
+        <th>Stok</th>
+        <th>Deskripsi Singkat</th>
+        <th>Aksi</th>
+        </tr>
+      </thead>
+    <tbody class="tabel-kasir">
+    </table>
+</div>
+<div class="modal-window-delete hidden">
+    <button class="close-modal delete-close">&times;</button>
+    <h1 style="color: white; text-align: center;">Hapus Transaksi ?</h1>
+    <p style="color: white;">Apakah anda yakin ingin menghapus transaksi? Setelah dihapus tidak dapat dikembalikan lagi</p>
+    <button class="btn-affirmative delete-close">Iya</button>
+    <button class="btn delete-close">Tidak</button>
+</div>
+<div class="overlay hidden"></div>
+<script src="./js/data-transaksi.js"></script>
 </body>
 </html>
