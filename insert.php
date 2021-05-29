@@ -17,7 +17,6 @@
                     harga_grosir = '$harga_grosir', jenis_barang = '$jenis_barang',
                     jumlah_barang = '$jumlah_barang', deskripsi = '$deskripsi' 
                     WHERE id = '$id'";
-        echo $query;
         mysqli_query($conn, $query);
     }elseif($_POST['aksi']=="hapus"){
         $id = $_POST['id'];
@@ -38,7 +37,6 @@
         $query = "INSERT INTO data_barang VALUES    
                 ('', '$barcode', '$namaBarang', '$hargaBeli', '$hargaJual', '$expired', 
                 '$hargaGrosir', '$jenisBarang', '$jumlahBarang', '$deskripsi')";
-        echo $query;
         mysqli_query($conn, $query);
     }
 ?>

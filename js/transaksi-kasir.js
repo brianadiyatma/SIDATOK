@@ -1,11 +1,11 @@
 "use strict";
 $(document).ready(function () {
   var data_barang;
+  var i = 0;
   let pembantucounter = -1;
   var objekbarang = [];
   const tabelKasir = document.querySelector(".tabel-kasir");
   var hargatotal = 0;
-  loadData();
   //fungsi tambah baris
   function tambahbaris(data) {
     let baris = `<tr id='.$row["id"].'>
@@ -34,32 +34,31 @@ $(document).ready(function () {
     $.ajax({
       url: "transaksi-kasir-server.php",
       type: "POST",
-      cache: false,
       dataType: "json",
       data: { search: search },
       success: function (data) {
         data_barang = data.res;
         console.log(data_barang);
+        console.log(++i);
         $("#nama-barang").val(data_barang.nama_barang);
         $("#harga-umum").val(data_barang.harga_beli);
         $("#harga-grosir").val(data_barang.harga_grosir);
         $("#stok").val(data_barang.jumlah_barang);
         $("#deskripsi").val(data_barang.deskripsi);
+        data_barang = "";
       },
     });
   }
   //fungsi ketika mendeteksi menulis akan minta data ke fungsi loadata()
   $(document).on("change", "#barcode", function (e) {
     let barcode = $(this).val();
-    if (barcode != "") {
-      loadData(barcode);
-    } else {
-      return;
-    }
+    loadData(barcode);
+    e.preventDefault();
   });
   //menambahkan data ke objek dan tabel
-  $(document).on("click", "#tambah-btn", function () {
-    if ($("#nama-barang").val() === "") {
+  $(document).on("click", "#tambah-btn", function (e) {
+    e.preventDefault();
+    if ($("#nama-barang").val().length === 0) {
       alert("Tolong isi dulu formnya");
     } else {
       if ($("#pelanggan").val() === "grosir") {
@@ -72,6 +71,9 @@ $(document).ready(function () {
           pelanggan: $("#pelanggan").val(),
           barcode: $("#barcode").val(),
         });
+        pembantucounter++;
+        tambahbaris(pembantucounter);
+        penambah(pembantucounter);
       } else {
         objekbarang.push({
           nama_barang: $("#nama-barang").val(),
@@ -82,18 +84,18 @@ $(document).ready(function () {
           pelanggan: $("#pelanggan").val(),
           barcode: $("#barcode").val(),
         });
+        pembantucounter++;
+        tambahbaris(pembantucounter);
+        penambah(pembantucounter);
       }
-      $("#nama-barang").val("");
-      $("#harga-umum").val("");
-      $("#harga-grosir").val("");
-      $("#stok").val("");
-      $("#deskripsi").val("");
-      $("#barcode").val("");
-      console.log(objekbarang);
-      pembantucounter++;
-      tambahbaris(pembantucounter);
-      penambah(pembantucounter);
     }
+    $("#nama-barang").val("");
+    $("#harga-umum").val("");
+    $("#harga-grosir").val("");
+    $("#stok").val("");
+    $("#deskripsi").val("");
+    $("#barcode").val("");
+    console.log(objekbarang);
   });
   //membatalkan form
   $(document).on("click", "#batal-btn", function () {
@@ -111,7 +113,9 @@ $(document).ready(function () {
       type: "POST",
       cache: false,
       dataType: "json",
-      data: { datapembelian: objekbarang },
+      data: { datapembelian: objekbarang,
+              hargatotal: hargatotal
+            },
       success: function () {
         console.log("berhasil terkirim");
       },

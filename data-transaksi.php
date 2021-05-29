@@ -22,29 +22,13 @@
                 <label for="search" style="color: white;">Pencarian : </label>
                 <input type="text" class="form" name="search" id="search">
             </div>
-            <table class="content-table">
-            <thead>
-            <tr>
-            <th>Nomor Nota</th>
-            <th>Total Transaksi</th>
-            <th>Jumlah Item Transaksi</th>
-            <th>Tanggal Transaksi</th>
-            <th>Aksi</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr id='.$row["id"].'>
-                <td data-target = "nomnor_nota">1950021233</td>
-                <td data-target = "total_transaksi">100.000</td>
-                <td data-target = "jumlah-item">10</td>
-                <td data-target = "tanggal">10-May-2021</td>
-                <td style="width: 220px;">
-                    <button type="submit" class="btn delete" id="delete" data-id='.$row["id"].'> Delete</button>
-                    <button type="submit" class="btn-affirmative edit" id="edit" data-id='.$row["id"].'> Lihat</button>
-                </td>
-                </tr>
-            </table>
+            <div id="table"></div>
         </div>
 </div>
+<div class="pagination">
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="./js/transaksi.js"></script>
 </body>
 </html>
