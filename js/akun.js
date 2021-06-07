@@ -1,10 +1,11 @@
 $(document).ready(function () {
+  load_data();
   function load_data(search) {
     $.ajax({
       url: "insert.php",
       method: "POST",
       dataType: "json",
-      data: { search: search, aksi: "pengeluaran" },
+      data: { search: search, aksi: "akun" },
       success: function (data) {
         $("#table").html(data.output);
         const closeDelete = document.querySelectorAll(".delete-close");
@@ -61,7 +62,6 @@ $(document).ready(function () {
       },
     });
   }
-  load_data();
   $("#search").on("keyup", function () {
     let search = $("#search").val();
     if (search != "") {
@@ -70,7 +70,7 @@ $(document).ready(function () {
       load_data();
     }
   });
-  $(document).on("click", "#inputmasuk", function (e) {
+  $(document).on("click", "#masukAkun", function (e) {
     e.preventDefault();
     $.ajax({
       url: "insert.php",
@@ -87,21 +87,23 @@ $(document).ready(function () {
     let id = $(this).data("id");
     $("#userId").val(id);
   });
-  $(document).on("click", "#inputedit", function (e) {
+  $(document).on("click", "#editAkun", function (e) {
     e.preventDefault();
-    let tgl = $("#dateEdit").val();
-    let ket = $("#keteranganEdit").val();
-    let nominal = $("#numberEdit").val();
+    let nama = $("#nama").val();
+    let user = $("#user").val();
+    let pass = $("#pass").val();
+    let type = $("#typeEdit").val();
     let id = $("#userId").val();
     $.ajax({
       url: "insert.php",
       method: "POST",
       data: {
         id: id,
-        tgl: tgl,
-        ket: ket,
-        nominal: nominal,
-        editPengeluaran: "true",
+        nama: nama,
+        user: user,
+        password: pass,
+        editAkun: "true",
+        type: type,
       },
       success: function (data) {
         load_data();
@@ -119,7 +121,7 @@ $(document).ready(function () {
         method: "POST",
         data: {
           id: id,
-          hapusPengeluaran: "true",
+          hapusAkun: "true",
         },
         success: function () {
           load_data();

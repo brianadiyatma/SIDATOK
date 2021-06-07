@@ -50,6 +50,8 @@ if ($nama != ''){
         <div>
             <p class="tag">Stok</p>
             <input readonly class="form" type="name" id="stok">
+            <input readonly class="form" type="hidden" id="laba">
+            <input readonly class="form" type="hidden" id="laba2">
         </div>
         <div>
             <p class="tag">Deskripsi</p>

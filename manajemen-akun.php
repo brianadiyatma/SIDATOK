@@ -25,30 +25,7 @@
                 <input type="text" class="form" name="search" id="search">
                 <button class="btn input-data">Masukkan Data</button>
             </div>
-                <table class="content-table">
-                <thead>
-                <tr>
-                <th>Nama</th>
-                <th>Email</th>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Foto</th>
-                <th style="width: 100px;">Aksi</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr id='.$row["id"].'>
-                    <td data-target = "Nama">Brian Adiyatma</td>
-                    <td data-target = "email">uwu.uwu@uwumail.com</td>
-                    <td data-target = "username">brian123</td>
-                    <td data-target = "password">123456</td>
-                    <td data-target = "foto" ><img style="width: 100px;" src="./assets/img/profil/cat.PNG" alt=""></td>
-                    <td style="width: 220px;">
-                        <button type="submit" class="btn delete" id="delete"> Delete</button>
-                        <button type="submit" class="btn-affirmative lihat"> Edit</button>
-                    </td>
-                    </tr>
-                </table>
+            <div id="table">
             </div>
     </div>
 </div>
@@ -58,47 +35,57 @@
     <form action="">
         <div>
         <label for="date">Nama :</label>
-        <input class="form" type="date" id="date">
-        </div>
-        <div>
-        <label for="keterangan">Email :</label>
-        <input class="form" type="text" id="keterangan">
+        <input class="form" type="text" id="nama">
         </div>
         <div>
         <label for="nominal">Username :</label>
-        <input class="form" type="number" id="number">
+        <input class="form" type="text" id="user">
         </div>
         <div>
         <label for="nominal">Password :</label>
-        <input class="form" type="password" id="number">
+        <input class="form" type="password" id="pass">
+        <input type="hidden" name="id" id="userId">
         </div>
         <div>
-            <input type="button" value="Edit" class="btn close-modal" id="edit-form-btn">
+        <label for="nominal">User Type :</label>
+        <select name="" id="typeEdit" class= "form">
+                <option value="superadmin">Super Admin</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+            </select>
+        </div>
+        <div>
+            <input type="button" value="Edit" class="btn close-modal" id="editAkun">
         </div>
     </form>
 </div>
 <div class="modal-window-input hidden">
     <button class="close-modal-input">&times;</button>
-    <h1 style="color: white; text-align: center;">Edit Data</h1>
-    <form action="">
+    <h1 style="color: white; text-align: center;">Masukkan Data</h1>
+    <form action="" id="masuk">
         <div>
         <label for="date">Nama :</label>
-        <input class="form" type="date" id="date">
-        </div>
-        <div>
-        <label for="keterangan">Email :</label>
-        <input class="form" type="text" id="keterangan">
+        <input class="form" type="text" id="date" name="nama">
         </div>
         <div>
         <label for="nominal">Username :</label>
-        <input class="form" type="number" id="number">
+        <input class="form" type="text" id="number" name="user">
         </div>
         <div>
         <label for="nominal">Password :</label>
-        <input class="form" type="password" id="number">
+        <input class="form" type="password" id="number" name="password">
+        <input type="hidden" name="insertAkun" value="akun">
         </div>
         <div>
-            <input type="button" value="Masukkan" class="btn close-modal-input" id="edit-form-btn">
+        <label for="nominal">User Type :</label>
+        <select id="pelanggan" class= "form" name="type">
+                <option value="superadmin">Super Admin</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+            </select>
+        </div>
+        <div>
+            <input type="button" value="Masukkan" class="btn close-modal-input" id="masukAkun">
         </div>
     </form>
 </div>
@@ -106,10 +93,10 @@
     <button class="close-modal delete-close">&times;</button>
     <h1 style="color: white; text-align: center;">Hapus Transaksi ?</h1>
     <p style="color: white;">Apakah anda yakin ingin menghapus Akun? Setelah dihapus tidak dapat dikembalikan lagi</p>
-    <button class="btn-affirmative delete-close">Iya</button>
+    <button class="btn-affirmative delete-close" id="iya">Iya</button>
     <button class="btn delete-close">Tidak</button>
 </div>
 <div class="overlay hidden"></div>
-<script src="./js/data-pengeluaran.js"></script>
+<script src="./js/akun.js"></script>
 </body>
 </html>

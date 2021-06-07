@@ -130,7 +130,7 @@ th {
 }
 
 .content-table thead tr {
-  background-color: #543864;
+  background-color: #000272;
   color: #ffffff;
   text-align: left;
   font-weight: bold;
@@ -151,7 +151,7 @@ th {
 }
 
 .content-table tbody tr:last-of-type {
-  border-bottom: 2px solid #543864;
+  border-bottom: 2px solid #000272;
 }
 
 .content-table tbody tr.active-row {
@@ -160,7 +160,7 @@ th {
 }
 
 body {
-  background-color: #1e1e2e;
+  background-color: #231e23;
   -webkit-transition: ease-in 0.5s;
   transition: ease-in 0.5s;
 }
@@ -176,7 +176,7 @@ body {
 .form {
   width: 250px;
   background: none;
-  border: 1px solid #ff6464;
+  border: 1px solid #000272;
   padding: 8px 8px;
   border-radius: 50px;
   letter-spacing: 1px;
@@ -239,7 +239,7 @@ a.active {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 30%;
-  background-color: #1e1e2e;
+  background-color: #231e23;
   padding: 6rem;
   border-radius: 5px;
   -webkit-box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
@@ -267,7 +267,7 @@ a.active {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 30%;
-  background-color: #1e1e2e;
+  background-color: #231e23;
   padding: 6rem;
   border-radius: 5px;
   -webkit-box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
@@ -320,22 +320,7 @@ a.active {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 60%;
-  background-color: #1e1e2e;
-  padding: 6rem;
-  border-radius: 5px;
-  -webkit-box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-          box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-  z-index: 10;
-}
-
-.modal-window-input {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 60%;
-  background-color: #1e1e2e;
+  background-color: #231e23;
   padding: 6rem;
   border-radius: 5px;
   -webkit-box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
@@ -350,7 +335,22 @@ a.active {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 60%;
-  background-color: #1e1e2e;
+  background-color: #231e23;
+  padding: 6rem;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.modal-window-verifikasi {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 60%;
+  background-color: #231e23;
   padding: 6rem;
   border-radius: 5px;
   -webkit-box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);

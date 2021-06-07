@@ -20,9 +20,9 @@
     <div class="search-container">
         <form action="">
             <label for="tanggal-laporan" style="color:white">Tanggal</label>
-            <input type="date" name="" id="tanggal-laporan" class="form">
+            <input type="date" name="tanggal" id="tanggal-laporan" class="form">
             <div>
-            <input type="button" value="Cari" class=btn>
+            <input type="button" value="Cari" class="btn">
             </div>    
         </form>
     </div>
@@ -30,40 +30,13 @@
 <div class="flex-bagian2">
     <div class="container-pemasukkan">
     <h2 style="color: white;">Tabel Pemasukkan</h2>
-    <table class="content-table">
-        <thead>
-            <tr>
-            <th>Tanggal</th>
-            <th>Keterangan</th>
-            <th>Jumlah</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr id='.$row["id"].'>
-            <td data-target = "nama_barang">20-May-2021</td>
-            <td data-target = "expired">Tutup Transaksi</td>
-            <td data-target = "expired">1.000.000</td>
-            </tr>
-    </table>
+    <div id="table-pem"></div>
     </div>
     <div class="container-pengeluaran">
     <h2 style="color: white;">Tabel Pengeluaran</h2>
-    <table class="content-table">
-        <thead>
-            <tr>
-            <th>Tanggal</th>
-            <th>Keterangan</th>
-            <th>Jumlah</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr id='.$row["id"].'>
-            <td data-target = "nama_barang">20-May-2021</td>
-            <td data-target = "expired">Bayar Internet</td>
-            <td data-target = "expired">300.000</td>
-            </tr>
-    </table>
+    <div id="table-peng"></div>
     </div>
 </div>
+<script src="./js/laporan.js"></script>
 </body>
 </html>

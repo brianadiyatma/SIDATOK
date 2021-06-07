@@ -83,7 +83,7 @@ if(isset($_GET['call_type']))
 			'data'=>file_get_contents('data-pengeluaran.php'),
 		));
 	}
-	else if($call_type == "manajemen-akun" || $call_type == "profil")
+	else if($call_type == "manajemen-akun")
 	{
 		echo json_encode(array(
 			'status'=>'success',
@@ -91,6 +91,16 @@ if(isset($_GET['call_type']))
 			'description' => 'Memanajemen Akun Pengguna',
 			'url'=> $call_type.'.php',
 			'data'=>file_get_contents('manajemen-akun.php'),
+		));
+	}
+	else if($call_type == "profile")
+	{
+		echo json_encode(array(
+			'status'=>'success',
+			'title'=> 'Manajemen Akun',
+			'description' => 'Memanajemen Akun Pengguna',
+			'url'=> $call_type.'.php',
+			'data'=>file_get_contents('profile.php'),
 		));
 	}
 }

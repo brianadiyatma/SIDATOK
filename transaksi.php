@@ -1,4 +1,22 @@
-<?php 
+<?php
+function harga($hargaRaw){
+  $arr = str_split($hargaRaw);
+  $harga = "";
+  $k = 0;
+  for($j=count($arr)-1; $j>=0; $j--){
+    $k++;
+    if($k==3){
+        $harga .= $arr[$j];
+        if($j!=0){
+            $harga .= ".";
+        }
+        $k = 0;
+    }else{
+        $harga .= $arr[$j];
+    }
+  } 
+  return strrev($harga);
+} 
 $conn = mysqli_connect('localhost','root','','sidatok');
 $record = 5;
 $page = '';
@@ -28,18 +46,26 @@ $output = '
     <tr>
     <th>Nomor Nota</th>
     <th>Total Transaksi</th>
-    <th>Jumlah Item Transaksi</th>
+    <th>Item Transaksi</th>
     <th>Tanggal Transaksi</th>
     <th>Aksi</th>
     </tr>
     </thead>
     <tbody>';
 while($row = mysqli_fetch_assoc($result)){
+  $nomor = $row['nomor_nota'];
+  $res=mysqli_query($conn, "SELECT rincian_transaksi.nama_barang AS nama, rincian_transaksi.jumlah AS jml
+  FROM pemasukan LEFT JOIN rincian_transaksi ON pemasukan.nomor_nota = rincian_transaksi.kode_transaksi 
+  WHERE pemasukan.nomor_nota = '$nomor'");
     $output .= '
         <tr id='.$row["id"].'>
         <td data-target = "nomnor_nota">'.$row['nomor_nota'].'</td>
-        <td data-target = "total_transaksi">'.$row['total'].'</td>
-        <td data-target = "jumlah-item">'.$row['jumlah_item'].'</td>
+        <td data-target = "total_transaksi">Rp.'.harga($row['total']).'</td>
+        <td data-target = "jumlah-item">';
+        while($baris = mysqli_fetch_assoc($res)){
+          $output.= $baris['nama'].' = '.$baris['jml'].'</br>';
+        }
+        $output .='</td>
         <td data-target = "tanggal">'.$row['tanggal'].'</td>
         <td style="width: 220px;">
             <button type="submit" class="btn delete" id="delete" data-id='.$row["id"].'> Delete</button>
@@ -56,6 +82,3 @@ $halaman .= '
 
 echo json_encode(['output'=>$output, 'halaman'=>$halaman, 'max'=>$totalPages]);
 ?>
-<!-- SELECT rincian_transaksi.nama_barang, rincian_transaksi.barcode, rincian_transaksi.harga 
-FROM pemasukan LEFT JOIN rincian_transaksi ON pemasukan.nomor_nota = rincian_transaksi.kode_transaksi 
-WHERE pemasukan.nomor_nota = 3933 -->

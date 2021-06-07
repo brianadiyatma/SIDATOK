@@ -34,8 +34,9 @@
             $jumlah += $jml;
         }
         $date = date("Y-m-d");
+        $laba=$beli['laba'];
         $sql = "INSERT INTO pemasukan VALUES
-                ('', '$rand', '$hargatotal', '$jumlah', '$date')";
+                ('', '$rand', '$hargatotal', '$jumlah', '$date','$laba')";
         mysqli_query($conn, $sql);
     }
     unset($_POST);

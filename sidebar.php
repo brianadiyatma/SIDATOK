@@ -56,11 +56,10 @@ $app_url = "http://localhost/";
               <ion-icon name="chevron-down-outline" class="sub-menu"></ion-icon>
               <ul class="collapse_menu">
                 <a id="link" class="collapse_sublink"call_type = 'import-manual' ><div class="reset-size"> <p>Import Manual</p></div></a>
-                <a class="collapse_sublink" id="link"call_type = 'import-csv'><div class="reset-size"> <p>Import Dengan CSV</p></div></a>
                 <a class="collapse_sublink" id="link"call_type = 'crud-table-inventory'><div class="reset-size"> <p>CRUD Table</p></div></a>
               </ul>
             </div>
-
+            <?php if($_SESSION['type']=='admin'||$_SESSION['type']=='superadmin'){?>
             <div class="nav_link collapse">
               <ion-icon name="bar-chart-outline" class="nav_icon"></ion-icon>
               <span class="nav_name">Akuntansi</span>
@@ -78,13 +77,16 @@ $app_url = "http://localhost/";
                 </li>
               </ul>
             </div>
+            <?php }?>
+            <?php if($_SESSION['type']=='superadmin'){?>
             <a  class="nav_link" id="link" call_type = "manajemen-akun">
               <ion-icon name="man-outline" class="nav_icon"></ion-icon>
               <span class="nav_name" >Manajemen Akun</span></a
             >
+            <?php }?>
           </div>
         </div>  
-        <a class="nav_link" id="link" call_type = "profil">
+        <a class="nav_link" id="link" call_type = "profile">
           <ion-icon name="person-outline" class="nav_icon"></ion-icon>
           <span class="nav_name"><?php echo $_SESSION["username"];?></span></a
         >

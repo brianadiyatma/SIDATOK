@@ -41,10 +41,12 @@ $(document).ready(function () {
         console.log(data_barang);
         console.log(++i);
         $("#nama-barang").val(data_barang.nama_barang);
-        $("#harga-umum").val(data_barang.harga_beli);
+        $("#harga-umum").val(data_barang.harga_jual);
         $("#harga-grosir").val(data_barang.harga_grosir);
         $("#stok").val(data_barang.jumlah_barang);
         $("#deskripsi").val(data_barang.deskripsi);
+        $("#laba").val(data_barang.harga_jual - data_barang.harga_beli);
+        $("#laba2").val(data_barang.harga_grosir - data_barang.harga_beli);
         data_barang = "";
       },
     });
@@ -70,6 +72,7 @@ $(document).ready(function () {
           jumlah: $("#jumlah").val(),
           pelanggan: $("#pelanggan").val(),
           barcode: $("#barcode").val(),
+          laba: $("#laba2").val() * $("#jumlah").val(),
         });
         pembantucounter++;
         tambahbaris(pembantucounter);
@@ -83,6 +86,7 @@ $(document).ready(function () {
           jumlah: $("#jumlah").val(),
           pelanggan: $("#pelanggan").val(),
           barcode: $("#barcode").val(),
+          laba: $("#laba").val() * $("#jumlah").val(),
         });
         pembantucounter++;
         tambahbaris(pembantucounter);
@@ -113,9 +117,7 @@ $(document).ready(function () {
       type: "POST",
       cache: false,
       dataType: "json",
-      data: { datapembelian: objekbarang,
-              hargatotal: hargatotal
-            },
+      data: { datapembelian: objekbarang, hargatotal: hargatotal },
       success: function () {
         console.log("berhasil terkirim");
       },
